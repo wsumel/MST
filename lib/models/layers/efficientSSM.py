@@ -58,35 +58,6 @@ class Attention(nn.Module):
         x = self.proj_drop(x)
         return x
 
-# class Cross_Attention(nn.Module):
-#     def __init__(self, dim, num_heads=8, qkv_bias=False, qk_scale=None, attn_drop=0., proj_drop=0.):
-#         super().__init__()
-#         self.num_heads = num_heads
-#         head_dim = dim // num_heads
-#         self.scale = qk_scale or head_dim ** -0.5
-
-#         self.linear_q = nn.Linear(dim, dim, bias=qkv_bias)
-#         self.linear_k = nn.Linear(dim, dim, bias=qkv_bias)
-#         self.linear_v = nn.Linear(dim, dim, bias=qkv_bias)
-
-#         self.attn_drop = nn.Dropout(attn_drop)
-#         self.proj = nn.Linear(dim, dim)
-#         self.proj_drop = nn.Dropout(proj_drop)
-
-#     def forward(self, x_1, x_2, x_3):
-#         B, N, C = x_1.shape
-#         q = self.linear_q(x_1).reshape(B, N, self.num_heads, C // self.num_heads).permute(0, 2, 1, 3)
-#         k = self.linear_k(x_2).reshape(B, N, self.num_heads, C // self.num_heads).permute(0, 2, 1, 3)
-#         v = self.linear_v(x_3).reshape(B, N, self.num_heads, C // self.num_heads).permute(0, 2, 1, 3)
-        
-#         attn = (q @ k.transpose(-2, -1)) * self.scale
-#         attn = attn.softmax(dim=-1)
-#         attn = self.attn_drop(attn)
-
-#         x = (attn @ v).transpose(1, 2).reshape(B, N, C)
-#         x = self.proj(x)
-#         x = self.proj_drop(x)
-#         return x
 
 
 class Cross_Attention(nn.Module):
@@ -249,16 +220,7 @@ class LayerNorm1D(nn.Module):
 class ConvLayer2D(nn.Module):
     def __init__(self, in_dim, out_dim, kernel_size=3, stride=1, padding=0, dilation=1, groups=1, norm=nn.BatchNorm2d, act_layer=nn.ReLU, bn_weight_init=1):
         super(ConvLayer2D, self).__init__()
-        # self.conv = nn.Conv2d(
-        #     in_dim,
-        #     out_dim,
-        #     kernel_size=(kernel_size, kernel_size),
-        #     stride=(stride, stride),
-        #     padding=(padding, padding),
-        #     dilation=(dilation, dilation),
-        #     groups=groups,
-        #     bias=False
-        # )
+
         self.conv = CondConv2D(in_dim, out_dim, kernel_size,stride,padding,dilation,groups)
         self.norm = norm(num_features=out_dim) if norm else None
         self.act = act_layer() if act_layer else None
@@ -279,16 +241,7 @@ class ConvLayer2D(nn.Module):
 class ConvLayer1D(nn.Module):
     def __init__(self, in_dim, out_dim, kernel_size=3, stride=1, padding=0, dilation=1, groups=1, norm=nn.BatchNorm1d, act_layer=nn.ReLU, bn_weight_init=1):
         super(ConvLayer1D, self).__init__()
-        # self.conv = nn.Conv1d(
-        #     in_dim,
-        #     out_dim,
-        #     kernel_size=kernel_size,
-        #     stride=stride,
-        #     padding=padding,
-        #     dilation=dilation,
-        #     groups=groups,
-        #     bias=False
-        # )
+
         self.conv = CondConv1D(in_dim, out_dim, kernel_size,stride,padding,dilation,groups)
         self.norm = norm(num_features=out_dim) if norm else None
         self.act = act_layer() if act_layer else None

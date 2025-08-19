@@ -81,12 +81,6 @@ class mst(nn.Module):
         """
         cat_feature: output embeddings of the backbone, it can be (HW1+HW2, B, C) or (HW2, B, C)
         """
-        # enc_opt = cat_feature[:, -self.feat_len_s:]  # encoder output for the search region (B, HW, C)
-        # opt = (cat_feature.unsqueeze(-1)).permute((0, 3, 2, 1)).contiguous()
-        # bs, Nq, C, HW = opt.size()
-        # opt_feat = opt.view(-1, C, self.feat_sz_s, self.feat_sz_s)
-        
-        
         enc_opt = cat_feature[:, -self.feat_len_s:]  # encoder output for the search region (B, HW, C)
         opt = (enc_opt.unsqueeze(-1)).permute((0, 3, 2, 1)).contiguous()
         bs, Nq, C, HW = opt.size()
