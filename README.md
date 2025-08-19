@@ -16,7 +16,7 @@ The official implementation for the **ACM MM 2025** paper [Multi-State Tracker: 
 
 ## News
 **[Dec. 12, 2025]**
-- MST was accepted by ACM MM2025.
+- MST was accepted by ACM MM2025 (Oral).
 
 
 ## Highlights
