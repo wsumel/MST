@@ -11,7 +11,7 @@ The official implementation for the **ACM MM 2025** paper [Multi-State Tracker: 
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/joint-feature-learning-and-relation-modeling/visual-object-tracking-on-uav123)](https://paperswithcode.com/sota/visual-object-tracking-on-uav123?p=joint-feature-learning-and-relation-modeling)
  -->
 <p align="center">
-  <img width="85%" src="https://github.com/wsumel/MST/tree/main/assets/method.png" alt="Framework"/>
+  <img width="85%" src="https://github.com/wsumel/MST/blob/main/assets/method.png" alt="Framework"/>
 </p>
 
 ## News
@@ -38,9 +38,9 @@ MST achieves good performance on multiple benchmarks. MST can serve as a strong 
 
 ### :star2: Good performance-speed trade-off
 
-[//]: # (![speed_vs_performance]&#40;https://github.com/wsumel/MST/tree/main/assets/performence.png&#41;)
+[//]: # (![speed_vs_performance]&#40;https://github.com/wsumel/MST/blob/main/assets/performence.png&#41;)
 <p align="center">
-  <img width="70%" src="https://github.com/wsumel/MST/tree/main/assets/performence.png" alt="speed_vs_performance"/>
+  <img width="70%" src="https://github.com/wsumel/MST/blob/main/assets/performence.png" alt="speed_vs_performance"/>
 </p>
 
 ## Install the environment
