@@ -1,4 +1,4 @@
-# mst
+# MST
 The official implementation for the **ACM MM 2025** paper [Multi-State Tracker: Enhancing Efficient Object Tracking via Multi-State Specialization and Interaction](https://arxiv.org/pdf/2508.11531).
 
 [[Raw Results]()]
